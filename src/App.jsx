@@ -1,4 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+function useLocalStorage(key, defaultValue) {
+  const [value, setValue] = useState(() => {
+    try {
+      const stored = localStorage.getItem(key);
+      return stored !== null ? JSON.parse(stored) : defaultValue;
+    } catch {
+      return defaultValue;
+    }
+  });
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+  return [value, setValue];
+}
 
 const TOTAL_WEEKS = 18;
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -274,12 +289,12 @@ const calorieInfo = {
 };
 
 export default function FitnessApp() {
-  const [selectedDay, setSelectedDay] = useState("Monday");
-  const [completed, setCompleted] = useState({});
-  const [activeTab, setActiveTab] = useState("schedule");
-  const [weekDone, setWeekDone] = useState({});
-  const [currentWeek, setCurrentWeek] = useState(1);
-  const [weightLog, setWeightLog] = useState({ 1: "67" });
+  const [selectedDay, setSelectedDay] = useLocalStorage("bnb-selectedDay", "Monday");
+  const [completed, setCompleted] = useLocalStorage("bnb-completed", {});
+  const [activeTab, setActiveTab] = useLocalStorage("bnb-activeTab", "schedule");
+  const [weekDone, setWeekDone] = useLocalStorage("bnb-weekDone", {});
+  const [currentWeek, setCurrentWeek] = useLocalStorage("bnb-currentWeek", 1);
+  const [weightLog, setWeightLog] = useLocalStorage("bnb-weightLog", { 1: "67" });
   const [editingWeight, setEditingWeight] = useState(null);
 
   const schedulePhase = getPhase(currentWeek);
