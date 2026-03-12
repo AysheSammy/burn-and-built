@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/burn-and-built/sw.js', { scope: '/burn-and-built/' })})}
