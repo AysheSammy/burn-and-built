@@ -1,16 +1,41 @@
-# React + Vite
+# Burn & Build — 18-Week Fitness App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal fitness tracker built with React + Vite. Designed for a beginner calisthenics home program targeting fat loss and strength over 18 weeks.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **18-week structured program** across 3 progressive phases
+- **Daily workout view** with warm-up, main workout, and cool-down for each day of the week
+- **Exercise checkoff** — tap exercises to mark them done, with auto-completion detection
+- **Weekly tracker** — log completed days per week and view overall program progress
+- **Weight log** — track weight for each of the 18 weeks
+- **Nutrition tab** — calorie targets, hydration tips, and a sample 1,400 kcal meal plan
+- **Persistent state** — all progress is saved to localStorage and survives page refreshes
 
-## React Compiler
+## Program Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Phase | Weeks | Focus |
+|-------|-------|-------|
+| 🌱 Foundation | 1–6 | Build the habit, nail form, modified moves OK |
+| 🔧 Build | 7–12 | Full moves, harder variations, reduced rest |
+| 🚀 Perform | 13–18 | Advanced skills — L-sit, handstand, pistol squat |
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 18
+- Vite
+- Plain CSS-in-JS (inline styles)
+- localStorage for data persistence
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
